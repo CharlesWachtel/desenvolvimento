@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .projeto {
+            margin-bottom: 20px;
+        }
+        .calculadora {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .gato img {
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Bem-vindo ao Meu Portfólio</h1>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#calculadora">Calculadora</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Sou um desenvolvedor apaixonado por criar soluções inovadoras e funcionais. Aqui estão alguns dos meus projetos.</p>
+</section>
+
+<section id="projetos">
+    <h2>Meus Projetos</h2>
+    <div class="projeto">
+        <h3>Sites Corporativos</h3>
+        <p>Criação de sites para empresas, com design responsivo e otimização para SEO.</p>
+    </div>
+    <div class="projeto">
+        <h3>E-commerce</h3>
+        <p>Desenvolvimento de lojas virtuais com funcionalidades completas de comércio eletrônico.</p>
+    </div>
+    <div class="projeto">
+        <h3>Portfólios Pessoais</h3>
+        <p>Criação de sites para exibir trabalhos e conquistas pessoais de forma atraente.</p>
+    </div>
+    <div class="projeto">
+        <h3>Blogs</h3>
+        <p>Desenvolvimento de blogs com interfaces amigáveis para fácil gestão de conteúdo.</p>
+    </div>
+    <div class="projeto">
+        <h3>Sistemas de Reservas</h3>
+        <p>Criação de sistemas de reservas online para hotéis, restaurantes e eventos.</p>
+    </div>
+</section>
+
+<section id="calculadora">
+    <h2>Calculadora de Orçamento</h2>
+    <div class="calculadora">
+        <label for="tipo">Tipo de Site:</label>
+        <select id="tipo">
+            <option value="site_corporativo">Site Corporativo - R$ 1.500</option>
+            <option value="ecommerce">E-commerce - R$ 3.000</option>
+            <option value="portfolio">Portfólio Pessoal - R$ 1.200</option>
+            <option value="blog">Blog - R$ 800</option>
+            <option value="reservas">Sistema de Reservas - R$ 2.500</option>
+        </select>
+        
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" placeholder="Quantidade" required>
+        
+        <button onclick="calcularOrcamento()">Calcular Orçamento</button>
+        
+        <h3 id="resultado"></h3>
+    </div>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Você pode me encontrar nas redes sociais.</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Charles Rafael. Todos os direitos reservados.</p>
+</footer>
+
+<div class="gato">
+    <img src="https://media.giphy.com/media/xT9IgG50Fb7MiYjViI/giphy.gif" alt="Gato dando mortal para trás">
+</div>
+
+<script>
+function calcularOrcamento() {
+    const tipo = document.getElementById("tipo").value;
+    const quantidade = document.getElementById("quantidade").value;
+    
+    let precoPorTipo;
+    
+    switch(tipo) {
+        case "site_corporativo":
+            precoPorTipo = 1500;
+            break;
+        case "ecommerce":
+            precoPorTipo = 3000;
+            break;
+        case "portfolio":
+            precoPorTipo = 1200;
+            break;
+        case "blog":
+            precoPorTipo = 800;
+            break;
+        case "reservas":
+            precoPorTipo = 2500;
+            break;
+        default:
+            precoPorTipo = 0;
+    }
+    
+    const total = precoPorTipo * quantidade;
+    document.getElementById("resultado").innerText = `O orçamento total é: R$ ${total.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>
